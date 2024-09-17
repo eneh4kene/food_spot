@@ -1,0 +1,45 @@
+[
+    {
+        "id": 3,
+        "name": "Spaghetti Bolognese",
+        "ingredients": [
+            "spaghetti",
+            "ground beef",
+            "tomato sauce"
+        ],
+        "steps": "Cook spaghetti. Cook beef. Mix with sauce.",
+        "imgURL": "http://example.com/spaghetti.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Spaghetti Bolognese",
+        "ingredients": [
+            "spaghetti",
+            "ground beef",
+            "tomato sauce"
+        ],
+        "steps": "Cook spaghetti. Cook beef. Mix with sauce.",
+        "imgURL": "http://example.com/spaghetti.jpg"
+    },
+    {
+        "id": 5,
+        "name": "abacha",
+        "ingredients": [
+            "cassava",
+            "palm oil an co"
+        ],
+        "steps": "further steps",
+        "imgURL": "https://images.unsplash.com/photo-1725656470421-c7e1ff4eed01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "id": 6,
+        "name": "coffee mate",
+        "ingredients": [
+            "coffee beans",
+            " sugar",
+            " water"
+        ],
+        "steps": "obbiebifeine",
+        "imgURL": "https://images.unsplash.com/photo-1725656470421-c7e1ff4eed01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
+    }
+]

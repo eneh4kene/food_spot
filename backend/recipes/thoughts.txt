@@ -1,0 +1,4 @@
+# To build our backend api, we need the data files to store the json data, the
+# the endpoints for the diff client side crud operations.
+# we'll use fastApi to build the backend due to its speed, asynchronousity, data validation and
+# easy API documentation feature.

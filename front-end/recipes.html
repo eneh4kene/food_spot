@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my recipe</title>
+    <link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+    <h1>Recipe Keeper</h1>
+    <!-- div for the form on the left -->
+    
+    <div id="body-content">
+        <div id="form-div">
+
+            <h2>Add Recipe</h2>
+    
+            <!-- Form for adding a recipe -->
+            <form action="" id="recipe">
+                <!-- recipe name -->
+                <label for="recipe-name">Recipe Name</label>
+                <input type="text" name="recipe-name" id="recipe-name" required>
+                <!-- ingredients -->
+                <label for="ingredients">Ingredients</label>
+                <textarea name="ingredients" id="ingredients" placeholder="List ingredients separated by commas" required></textarea>
+                <!-- recipe steps -->
+                <label for="steps">Recipe Steps</label>
+                <textarea name="steps" id="steps" required></textarea>
+                <!-- optional url for pics of the recipe -->
+                <input type="url" name="recipe-imgUrl" id="recipe-imgUrl" placeholder="Enter recipe picture url">
+                <!-- submit button -->
+                <button id="add-recipe">Add Recipe</button>
+            </form>
+    
+        </div>
+    
+        <div id="allRecipes">
+            <h2>Your Recipes</h2>
+
+            <!-- search bar -->
+            <input type="search" id="search-bar" name="search-bar" placeholder="Search recipes..." oninput="filterRecipes()">
+            <div id="recipe-images">
+                <!-- <div id="image"></div>
+                <label for="image" id="image-label"></label> -->
+            </div>
+
+        </div>
+    
+    </div>
+    <script src="recipes.js"></script>
+</body>
+</html>
