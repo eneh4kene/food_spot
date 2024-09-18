@@ -172,3 +172,11 @@ form {
     justify-content: space-around; /* Space out the images */
     align-items: flex-start;
 }
+
+#comments-section {
+    margin-top: 50px;
+}
+
+#comments-section input {
+    height: 100px;
+}

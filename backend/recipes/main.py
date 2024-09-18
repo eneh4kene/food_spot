@@ -119,9 +119,60 @@ def delete_recipe(recipe_id: int):
     if recipe_index is not None:
         del recipes[recipe_index]
         save_recipes(recipes)
-        return {'status':'success', 'message': 'Recipe deleted successfully'}
+        return {'status': 'success', 'message': 'Recipe deleted successfully'}
     else:
         raise HTTPException(status_code=404, detail='Recipe not found')
+
+
+# OTHER FEATURES
+class Comment(BaseModel):
+    comment: str
+
+
+# Simulated comment storage
+# file name
+COMMENT_FILE = "comments.json"
+
+
+# utility functions to load file and save to the file
+def load_comments():
+    # check if the file exists and create it if it doesn't exist
+    if os.path.exists(COMMENT_FILE):
+        with open(COMMENT_FILE, "r") as file_obj:
+            return json.load(file_obj)
+    else:
+        return {}
+
+
+def save_comments(comments):
+    with open(COMMENT_FILE, "w") as file_obj:
+        json.dump(comments, file_obj, indent=4)
+
+
+@app.post("/recipes/{recipe_id}/comments")
+async def add_comment(recipe_id: int, comment: Comment):
+    recipe_comments = load_comments()
+    if recipe_id not in recipe_comments:
+        recipe_comments[recipe_id] = []
+    recipe_comments[recipe_id].append(comment.comment)
+    save_comments(recipe_comments)
+    return {"message": "Comment added!"}
+
+
+@app.get("/recipes/{recipe_id}/comments")
+async def get_comments(recipe_id: int):
+    recipe_comments = load_comments()
+    return recipe_comments.get(recipe_id, [])
+
+
+@app.delete("/recipes/{recipe_id}/comments/{comment_index}")
+async def delete_comment(recipe_id: int, comment_index: int):
+    recipe_comments = load_comments()
+    if recipe_id in recipe_comments and len(recipe_comments[recipe_id]) > comment_index:
+        recipe_comments[recipe_id].pop(comment_index)
+        save_comments(recipe_comments)
+        return {"message": "Comment deleted!"}
+    raise HTTPException(status_code=404, detail="Comment not found")
 
 
 # run the server

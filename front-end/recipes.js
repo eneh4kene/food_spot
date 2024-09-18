@@ -181,3 +181,46 @@ function filterRecipes() {
         recipe.style.display = recipeName.includes(query) ? 'block' : 'none';
     });
 }
+
+
+// other functions/features
+function sortRecipes() {
+    let option = document.getElementById('sort-options').value;
+    let recipes = [...document.querySelectorAll('#recipe-images div')]; // Convert NodeList to array
+
+    recipes.sort((a, b) => {
+        if (option === "alphabetical") {
+            return a.querySelector('.recipe-label').innerText.localeCompare(b.querySelector('.recipe-label').innerText);
+        }
+        // Add additional sorting logic for date, ingredients, etc.
+    });
+
+    recipes.forEach(recipe => recipesDisplayArea.appendChild(recipe)); // Re-append sorted recipes
+}
+
+async function addComment(recipeId) {
+    let comment = document.getElementById('comment-input').value;
+    if (!comment) return alert("Please enter a comment.");
+
+    try {
+        await fetch(`${apiURL}/${recipeId}/comments`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ comment })
+        });
+        // Refresh the comments display
+    } catch (error) {
+        console.error("Error adding comment:", error);
+    }
+}
+
+// Fetch and display comments
+async function fetchComments(recipeId) {
+    try {
+        let response = await fetch(`${apiURL}/${recipeId}/comments`);
+        let comments = await response.json();
+        // Display comments in the comments section
+    } catch (error) {
+        console.error("Error fetching comments:", error);
+    }
+}
